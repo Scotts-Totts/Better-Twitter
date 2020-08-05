@@ -13,8 +13,9 @@ RegisterCommand("atwt", function(source,args) -- anonymous tweet using alternate
         table.remove(args, 1)
     else -- no handle provided
         if comboSize == 1 then 
-            handle = "@"..twitterHandles[getRandHandle()]
+            handle = twitterHandles[getRandHandle()]
             table.insert(combination, 2, playerID..":"..handle)
+            handle = "@"..handle
         else 
             for i=1, comboSize, 1 do
                 local index = string.find(combination[i],":")
@@ -25,8 +26,9 @@ RegisterCommand("atwt", function(source,args) -- anonymous tweet using alternate
                 end
             end
             if cont then -- if cont true then generate new handle and assign it into combination array
-                handle = "@"..twitterHandles[getRandHandle()]
+                handle = twitterHandles[getRandHandle()]
                 table.insert(combination, comboSize+1, playerID..":"..handle)
+                handle = "@"..twitterHandles[getRandHandle()]
             else -- concat @ symbol infront of handle
                 handle = "@"..handle
             end
