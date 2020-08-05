@@ -64,5 +64,5 @@ RegisterCommand("sethandle", function(source,args) -- set twitter handle for atw
 end)
 
 RegisterCommand("twt", function(source, args) --normal tweet using player name as handle
-    TriggerServerEvent("tweet", "@"..GetPlayerName(source).."^0: "..table.concat(args," "))
+    TriggerServerEvent("tweet", "@"..GetPlayerName(PlayerId()).."^0: "..table.concat(args," "))
 end)
