@@ -34,7 +34,7 @@ RegisterCommand("atwt", function(source,args) -- anonymous tweet using alternate
             end
         end
     end
-    message = handle .. "^0: "..table.concat(args," ")
+    message = handle .. "(#"..playerID..")^0: "..table.concat(args," ")
     TriggerServerEvent("tweet", message)
 end)
 
@@ -64,5 +64,5 @@ RegisterCommand("sethandle", function(source,args) -- set twitter handle for atw
 end)
 
 RegisterCommand("twt", function(source, args) --normal tweet using player name as handle
-    TriggerServerEvent("tweet", "@"..GetPlayerName(PlayerId()).."^0: "..table.concat(args," "))
+    TriggerServerEvent("tweet", "@"..GetPlayerName(PlayerId()).." (#"..playerID..")^0: "..table.concat(args," "))
 end)
